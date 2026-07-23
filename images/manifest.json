@@ -1,0 +1,111 @@
+{
+  "mains": [
+    "mains-1.jpg",
+    "mains-2.jpg",
+    "mains-3.jpg",
+    "mains-4.jpg",
+    "mains-5.jpg",
+    "mains-6.jpg",
+    "mains-7.jpg",
+    "mains-8.jpg",
+    "mains-9.jpg",
+    "mains-10.jpg",
+    "mains-11.jpg",
+    "mains-12.jpg",
+    "mains-13.jpg",
+    "mains-14.jpg",
+    "mains-15.jpg",
+    "mains-16.jpg",
+    "mains-17.jpg",
+    "mains-18.jpg",
+    "mains-19.jpg",
+    "mains-20.jpg",
+    "mains-21.jpg",
+    "mains-22.jpg",
+    "mains-23.jpg",
+    "mains-24.jpg",
+    "mains-25.jpg",
+    "mains-26.jpg",
+    "mains-27.jpg",
+    "mains-28.jpg"
+  ],
+  "starters": [
+    "starters-1.jpg",
+    "starters-2.jpg",
+    "starters-3.jpg",
+    "starters-4.jpg",
+    "starters-5.jpg",
+    "starters-6.jpg",
+    "starters-7.jpg",
+    "starters-8.jpg",
+    "starters-9.jpg",
+    "starters-10.jpg",
+    "starters-11.jpg",
+    "starters-12.jpg",
+    "starters-13.jpg",
+    "starters-14.jpg",
+    "starters-15.jpg",
+    "starters-16.jpg",
+    "starters-17.jpg",
+    "starters-18.jpg",
+    "starters-19.jpg",
+    "starters-20.jpg",
+    "starters-21.jpg",
+    "starters-22.jpg",
+    "starters-23.jpg",
+    "starters-24.jpg"
+  ],
+  "bowls": [
+    "bowls-1.jpg",
+    "bowls-2.jpg"
+  ],
+  "decorative": [
+    "decor-1.jpg",
+    "decor-2.jpg",
+    "decor-3.jpg",
+    "decor-4.jpg",
+    "decor-5.jpg",
+    "decor-6.jpg",
+    "decor-7.jpg",
+    "decor-8.jpg",
+    "decor-9.jpg",
+    "decor-10.jpg",
+    "decor-11.jpg",
+    "decor-12.jpg",
+    "decor-13.jpg",
+    "decor-14.jpg",
+    "decor-15.jpg",
+    "decor-16.jpg",
+    "decor-17.jpg",
+    "decor-18.jpg",
+    "decor-19.jpg"
+  ],
+  "rice_biryani": [
+    "rice_biryani-1.jpg",
+    "rice_biryani-2.jpg",
+    "rice_biryani-3.jpg",
+    "rice_biryani-4.jpg",
+    "rice_biryani-5.jpg",
+    "rice_biryani-6.jpg",
+    "rice_biryani-7.jpg",
+    "rice_biryani-8.jpg",
+    "rice_biryani-9.jpg",
+    "rice_biryani-10.jpg",
+    "rice_biryani-11.jpg"
+  ],
+  "salads": [
+    "salads-1.jpg"
+  ],
+  "noodles": [
+    "noodles-1.jpg"
+  ],
+  "rolls": [
+    "rolls-1.jpg"
+  ],
+  "breads": [
+    "breads-1.jpg",
+    "breads-2.jpg",
+    "breads-3.jpg",
+    "breads-4.jpg"
+  ]
+}
