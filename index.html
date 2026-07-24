@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Trishnabee | Digital Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #f2e6cf;
@@ -14,48 +17,64 @@
     --veg: #4caf6e;
     --nonveg: #d1615f;
     --divider: rgba(232,196,106,0.28);
-    --card-bg: rgba(15,10,6,0.86);
+    --card-bg: rgba(20,13,9,0.92);
   }
   * { box-sizing: border-box; }
-  html { background: #0a0603; }
+  html { background: #150b06; }
   body {
     margin:0; padding:0;
     min-height: 100vh;
-    background: #0a0603 url('images/bg-texture.jpg') center top / cover no-repeat fixed;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(165,71,75,0.25), transparent 45%),
+      radial-gradient(circle at 10% 110%, rgba(201,162,75,0.14), transparent 50%),
+      radial-gradient(circle at 90% 100%, rgba(165,71,75,0.16), transparent 55%),
+      linear-gradient(180deg, #1c1108 0%, #120b05 50%, #0c0704 100%);
+    background-attachment: fixed;
     color: var(--ink);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     -webkit-font-smoothing: antialiased;
   }
   a { text-decoration:none; color:inherit; }
 
-  .hero {
-    position: relative;
-    padding: 60px 20px 44px;
-    text-align: center;
+  .hero { position: relative; padding: 60px 20px 40px; text-align: center; overflow: hidden; }
+  .hero-inner { display: inline-block; padding: 10px 20px; position: relative; }
+  .hero .crest {
+    font-size: 15px; color: var(--gold-deep); letter-spacing: 8px; margin-bottom: 12px;
+    text-transform: uppercase;
   }
-  .hero-inner {
-    display: inline-block;
-    padding: 22px 42px;
-    border-radius: 10px;
-    background-image: linear-gradient(rgba(5,3,1,0.55),rgba(5,3,1,0.72)), url('images/decor/decor-12.jpg'); background-size: cover; background-position: center;
-  }
-  .hero .crest { font-size: 22px; color: var(--gold); letter-spacing: 10px; margin-bottom: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.7); }
   .hero h1 {
-    font-family: 'Palatino Linotype', Georgia, serif;
-    font-size: clamp(32px, 8vw, 54px);
-    letter-spacing: clamp(2px, 1vw, 5px);
-    margin: 0; color: var(--gold); font-variant: small-caps; font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+    font-family: 'Cinzel Decorative', 'Playfair Display', Georgia, serif;
+    font-size: clamp(38px, 10vw, 66px);
+    letter-spacing: clamp(1px, 0.6vw, 4px);
+    margin: 0; font-weight: 900; line-height: 1.1;
+    background: linear-gradient(180deg, #fff7de 0%, #f3d788 22%, #caa14a 48%, #efc873 68%, #f8e3ab 82%, #c99a3e 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.65));
+    position: relative;
+  }
+  .hero h1::after {
+    content: "Trishnabee";
+    position: absolute; left:0; top:0; width:100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.55) 48%, transparent 66%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 5s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
   .hero p.sub {
-    margin: 10px 0 0; letter-spacing: 3px; font-size: 12px; text-transform: uppercase;
-    font-style: italic; color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    margin: 12px 0 0; letter-spacing: 4px; font-size: 15px; text-transform: uppercase;
+    font-style: italic; font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--muted); text-shadow: 0 1px 4px rgba(0,0,0,0.8);
   }
-  .hero .rule { width: 90px; height: 1px; background: var(--gold); margin: 16px auto; opacity: 0.8; }
+  .hero .rule { width: 140px; height: auto; margin: 18px auto; opacity: 0.9; }
+  .hero .rule svg { width: 100%; height: 14px; display:block; }
 
   .navbar {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(12,8,5,0.94);
+    background: rgba(12,7,4,0.94);
     border-bottom: 1px solid var(--divider);
     backdrop-filter: blur(6px);
     overflow-x: auto; -webkit-overflow-scrolling: touch;
@@ -65,7 +84,7 @@
   @media (min-width: 900px) { .navbar { justify-content: center; flex-wrap: wrap; } }
   .navbar::-webkit-scrollbar { display:none; }
   .navlink {
-    flex: none; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    flex: none; font-family: Georgia, serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--muted); padding: 8px 14px; border: 1px solid var(--divider);
     border-radius: 999px; transition: all .2s ease;
   }
@@ -73,7 +92,7 @@
 
   .legend {
     display:flex; justify-content:center; gap:22px; padding: 16px 16px 0;
-    font-size: 11px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase;
+    font-family: Georgia, serif; font-size: 11px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase;
   }
   .legend .item { display:flex; align-items:center; gap:6px; }
 
@@ -83,7 +102,7 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.55); padding: 10px 22px 40px;
   }
 
-  .menu-section { padding: 40px 0 6px; }
+  .menu-section { padding: 40px 0 6px; font-family: Georgia, serif; }
   .section-head { text-align:center; margin-bottom: 26px; }
   .section-banner {
     display:block; width: 100%; max-width: 480px; margin: 0 auto 16px;
@@ -93,26 +112,26 @@
   }
   .section-head .section-icon { color: var(--gold); font-size: 14px; letter-spacing: 4px; display:block; margin-bottom: 6px; }
   .section-head h2 {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(20px, 4.5vw, 27px); letter-spacing: 3px; text-transform: uppercase;
     color: var(--gold); margin: 0 0 6px; font-weight: 700;
   }
-  .section-head .tagline { font-size: 12px; color: var(--muted); font-style: italic; letter-spacing: 0.5px; }
+  .section-head .tagline { font-size: 14px; color: var(--muted); font-style: italic; letter-spacing: 0.5px; }
 
   .gallery-strip {
     display:flex; gap: 8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
-    padding: 16px 2px 6px; margin: 0 auto; max-width: 100%;
-    scrollbar-width: thin;
+    padding: 16px 2px 6px; margin: 0 auto; max-width: 100%; scrollbar-width: thin;
   }
   .gallery-strip img {
     flex: 0 0 auto; width: 100px; height: 100px; object-fit: cover;
-    border-radius: 6px; border: 1px solid var(--divider);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    border-radius: 6px; border: 1px solid var(--divider); box-shadow: 0 4px 14px rgba(0,0,0,0.4);
   }
 
   .divider {
-    height: 46px; margin: 0 -22px; background-size: cover; background-position: center;
-    opacity: 0.55; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider);
+    display:flex; align-items:center; justify-content:center; gap: 14px;
+    margin: 10px 0 30px; color: var(--gold-deep); font-size: 14px;
   }
+  .divider::before, .divider::after { content:""; flex:1; height:1px; background: var(--divider); }
 
   .section-body { display: block; }
   @media (min-width: 860px) {
@@ -121,6 +140,7 @@
 
   .subblock { margin-bottom: 28px; min-width: 0; }
   .subhead {
+    font-family: Georgia, serif;
     font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
     color: var(--gold-deep); border-bottom: 1px solid var(--divider);
     padding-bottom: 8px; margin-bottom: 14px; display:flex; align-items:center; gap:8px;
@@ -132,6 +152,7 @@
   }
   .item:last-child { border-bottom: none; }
   .item-name {
+    font-family: Georgia, serif;
     font-size: clamp(14px, 3.6vw, 15.5px); color: var(--ink);
     display:flex; align-items:baseline; gap:8px; line-height: 1.35;
     flex: 1 1 auto; min-width: 0; word-break: break-word;
@@ -144,25 +165,28 @@
     content:""; position:absolute; top:1.5px; left:2.5px; width:0;height:0;
     border-left:3.5px solid transparent; border-right:3.5px solid transparent; border-bottom: 6px solid var(--nonveg);
   }
-  .item-prices { flex: none; text-align:right; white-space: nowrap; }
+  .item-prices { flex: none; text-align:right; white-space: nowrap; font-family: Georgia, serif; }
   .item-prices.one .pval { color: var(--gold); font-weight:700; font-size: clamp(14px, 3.6vw, 15.5px); }
   .item-prices.two { display:flex; gap: clamp(8px, 3vw, 16px); }
   .pcol { display:flex; flex-direction:column; align-items:flex-end; min-width: 44px; }
   .ptag { font-size: 9px; letter-spacing:1px; color: var(--muted); text-transform:uppercase; }
   .pcol .pval { color: var(--gold); font-weight:700; font-size: clamp(13px, 3.4vw, 15px); }
 
-  .footer { text-align:center; padding: 46px 20px 40px; }
-  .footer-inner { display:inline-block; padding: 24px 30px; border-radius: 10px; background-image: linear-gradient(rgba(5,3,1,0.55),rgba(5,3,1,0.72)), url('images/decor/decor-13.jpg'); background-size: cover; background-position: center; }
+  .footer { text-align:center; padding: 46px 20px 40px; font-family: Georgia, serif; }
+  .footer-inner { display:inline-block; padding: 24px 30px; }
   .footer .crest { color: var(--gold); letter-spacing:8px; font-size: 13px; margin-bottom: 14px; }
-  .footer h3 { color: var(--gold); letter-spacing:4px; font-size:20px; text-transform:uppercase; font-weight:700; margin: 0 0 6px; }
-  .footer p { color: var(--muted); font-size: 12px; margin: 4px 0; letter-spacing: 0.5px; }
+  .footer h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--gold); letter-spacing:4px; font-size:22px; text-transform:uppercase; font-weight:700; margin: 0 0 6px;
+  }
+  .footer p { color: var(--muted); font-size: 13px; margin: 4px 0; letter-spacing: 0.5px; }
   .qr-wrap { margin: 26px auto 10px; padding: 16px; background: #fffdf6; border: 1px solid var(--gold-deep); border-radius: 6px; width: 150px; }
   .qr-wrap img { width: 100%; display:block; }
-  .qr-note { font-size: 10px; color: var(--muted); max-width: 320px; margin: 10px auto 0; line-height:1.5; }
+  .qr-note { font-size: 11px; color: var(--muted); max-width: 320px; margin: 10px auto 0; line-height:1.5; }
 
   .note-strip {
     max-width: 780px; margin: 10px auto 0; padding: 0 18px; text-align:center;
-    font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    font-size: 12px; color: var(--muted); letter-spacing: 0.5px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);
   }
 
   @media (max-width: 360px) {
@@ -178,7 +202,8 @@
     .navbar { position: static; }
     body { background: #fff; color: #111; }
     .container { background: #fff; border-color: #999; box-shadow:none; }
-    .gallery-strip, .divider, .section-banner { display:none; }
+    .gallery-strip, .section-banner { display:none; }
+    .hero h1, .hero h1::after { -webkit-text-fill-color: #6e1f24; background:none; color:#6e1f24; }
   }
 </style>
 </head>
@@ -186,11 +211,17 @@
 
   <div class="hero">
     <div class="hero-inner">
-      <div class="crest">❦ ❦ ❦</div>
+      <div class="crest">✦ Est. Fine Dining ✦</div>
       <h1>Trishnabee</h1>
       <p class="sub">Fine Dining &amp; Culinary Craft</p>
-      <div class="rule"></div>
-      <p class="sub" style="font-size:11px;">Scan • Explore • Savour</p>
+      <div class="rule">
+        <svg viewBox="0 0 300 20" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="10" x2="120" y2="10" stroke="#c9a24b" stroke-width="1"/>
+          <circle cx="150" cy="10" r="4" fill="#e8c46a"/>
+          <line x1="180" y1="10" x2="300" y2="10" stroke="#c9a24b" stroke-width="1"/>
+        </svg>
+      </div>
+      <p class="sub" style="font-size:12px;">Scan • Explore • Savour</p>
     </div>
   </div>
 
@@ -220,11 +251,11 @@
       
     <section class="menu-section" id="starters">
       <div class="section-head">
-        <img class="section-banner" src="images/tandoori.jpg" alt="Starters" loading="lazy">
+        <img class="section-banner" src="images/final/starters/strater-1.jpg" alt="Starters" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Starters</h2>
         <span class="tagline">Awaken the Palate</span>
-        <div class="gallery-strip"><img src="images/starters.jpg" alt="" loading="lazy"><img src="images/img%202.jpg" alt="" loading="lazy"><img src="images/img%203.jpg" alt="" loading="lazy"><img src="images/img%204.jpg" alt="" loading="lazy"><img src="images/img%205.jpg" alt="" loading="lazy"><img src="images/gallery/starters-1.jpg" alt="" loading="lazy"><img src="images/gallery/starters-2.jpg" alt="" loading="lazy"><img src="images/gallery/starters-3.jpg" alt="" loading="lazy"><img src="images/gallery/starters-4.jpg" alt="" loading="lazy"><img src="images/gallery/starters-5.jpg" alt="" loading="lazy"><img src="images/gallery/starters-6.jpg" alt="" loading="lazy"><img src="images/gallery/starters-7.jpg" alt="" loading="lazy"><img src="images/gallery/starters-8.jpg" alt="" loading="lazy"><img src="images/gallery/starters-9.jpg" alt="" loading="lazy"><img src="images/gallery/starters-10.jpg" alt="" loading="lazy"><img src="images/gallery/starters-11.jpg" alt="" loading="lazy"><img src="images/gallery/starters-12.jpg" alt="" loading="lazy"><img src="images/gallery/starters-13.jpg" alt="" loading="lazy"><img src="images/gallery/starters-14.jpg" alt="" loading="lazy"><img src="images/gallery/starters-15.jpg" alt="" loading="lazy"><img src="images/gallery/starters-16.jpg" alt="" loading="lazy"><img src="images/gallery/starters-17.jpg" alt="" loading="lazy"><img src="images/gallery/starters-18.jpg" alt="" loading="lazy"><img src="images/gallery/starters-19.jpg" alt="" loading="lazy"><img src="images/gallery/starters-20.jpg" alt="" loading="lazy"><img src="images/gallery/starters-21.jpg" alt="" loading="lazy"><img src="images/gallery/starters-22.jpg" alt="" loading="lazy"><img src="images/gallery/starters-23.jpg" alt="" loading="lazy"><img src="images/gallery/starters-24.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/starters/strater-10.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-11.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-12.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-13.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-14.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-15.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-16.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-17.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-18.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-19.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-20.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-21.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-22.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-23.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-3.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-4.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-6.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-7.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-8.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -522,15 +553,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-1.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="soups">
       <div class="section-head">
-        <img class="section-banner" src="images/worm%20bowl.jpg" alt="Warm Bowls" loading="lazy">
+        <img class="section-banner" src="images/final/soups/Soup-4.jpg" alt="Warm Bowls" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Warm Bowls</h2>
         <span class="tagline">Soups & Broths</span>
-        <div class="gallery-strip"><img src="images/soups.jpg" alt="" loading="lazy"><img src="images/gallery/bowls-1.jpg" alt="" loading="lazy"><img src="images/gallery/bowls-2.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/soups/Soup-1.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-2.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-3.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-5.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -609,15 +640,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-2.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="salads">
       <div class="section-head">
-        <img class="section-banner" src="images/salads.jpg" alt="Salads" loading="lazy">
+        <img class="section-banner" src="images/final/salads/Salads-2.jpg" alt="Salads" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Salads</h2>
         <span class="tagline">Fresh & Light</span>
-        
+        <div class="gallery-strip"><img src="images/final/salads/Salads-1.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -668,15 +699,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-3.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="noodles">
       <div class="section-head">
-        <img class="section-banner" src="images/noodles.jpg" alt="Noodles" loading="lazy">
+        <img class="section-banner" src="images/final/noodles/noodles-5.jpg" alt="Noodles" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Noodles</h2>
         <span class="tagline">Wok-Tossed Favourites</span>
-        <div class="gallery-strip"><img src="images/gallery/noodles-1.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/noodles/noodles-1.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-2.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-3.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-4.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -755,15 +786,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-4.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="rolls">
       <div class="section-head">
-        <img class="section-banner" src="images/rolls.jpg" alt="Rolls" loading="lazy">
+        <img class="section-banner" src="images/final/rolls/rool-2.jpg" alt="Rolls" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Rolls</h2>
         <span class="tagline">Hand-Rolled, On the Go</span>
-        <div class="gallery-strip"><img src="images/gallery/rolls-1.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/rolls/rool-3.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-4.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-5.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-6.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -814,15 +845,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-5.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="main">
       <div class="section-head">
-        <img class="section-banner" src="images/main-course.jpg" alt="Main Course" loading="lazy">
+        <img class="section-banner" src="images/final/main/main-11.jpg" alt="Main Course" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Main Course</h2>
         <span class="tagline">The Heart of the Meal</span>
-        <div class="gallery-strip"><img src="images/fish.jpg" alt="" loading="lazy"><img src="images/img%201.jpg" alt="" loading="lazy"><img src="images/img%206.jpg" alt="" loading="lazy"><img src="images/gallery/mains-1.jpg" alt="" loading="lazy"><img src="images/gallery/mains-2.jpg" alt="" loading="lazy"><img src="images/gallery/mains-3.jpg" alt="" loading="lazy"><img src="images/gallery/mains-4.jpg" alt="" loading="lazy"><img src="images/gallery/mains-5.jpg" alt="" loading="lazy"><img src="images/gallery/mains-6.jpg" alt="" loading="lazy"><img src="images/gallery/mains-7.jpg" alt="" loading="lazy"><img src="images/gallery/mains-8.jpg" alt="" loading="lazy"><img src="images/gallery/mains-9.jpg" alt="" loading="lazy"><img src="images/gallery/mains-10.jpg" alt="" loading="lazy"><img src="images/gallery/mains-11.jpg" alt="" loading="lazy"><img src="images/gallery/mains-12.jpg" alt="" loading="lazy"><img src="images/gallery/mains-13.jpg" alt="" loading="lazy"><img src="images/gallery/mains-14.jpg" alt="" loading="lazy"><img src="images/gallery/mains-15.jpg" alt="" loading="lazy"><img src="images/gallery/mains-16.jpg" alt="" loading="lazy"><img src="images/gallery/mains-17.jpg" alt="" loading="lazy"><img src="images/gallery/mains-18.jpg" alt="" loading="lazy"><img src="images/gallery/mains-19.jpg" alt="" loading="lazy"><img src="images/gallery/mains-20.jpg" alt="" loading="lazy"><img src="images/gallery/mains-21.jpg" alt="" loading="lazy"><img src="images/gallery/mains-22.jpg" alt="" loading="lazy"><img src="images/gallery/mains-23.jpg" alt="" loading="lazy"><img src="images/gallery/mains-24.jpg" alt="" loading="lazy"><img src="images/gallery/mains-25.jpg" alt="" loading="lazy"><img src="images/gallery/mains-26.jpg" alt="" loading="lazy"><img src="images/gallery/mains-27.jpg" alt="" loading="lazy"><img src="images/gallery/mains-28.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/main/main-1.jpg" alt="" loading="lazy"><img src="images/final/main/main-10.jpg" alt="" loading="lazy"><img src="images/final/main/main-12.jpg" alt="" loading="lazy"><img src="images/final/main/main-13.jpg" alt="" loading="lazy"><img src="images/final/main/main-14.jpg" alt="" loading="lazy"><img src="images/final/main/main-15.jpg" alt="" loading="lazy"><img src="images/final/main/main-2.jpg" alt="" loading="lazy"><img src="images/final/main/main-3.jpg" alt="" loading="lazy"><img src="images/final/main/main-4.jpg" alt="" loading="lazy"><img src="images/final/main/main-5.jpg" alt="" loading="lazy"><img src="images/final/main/main-6.jpg" alt="" loading="lazy"><img src="images/final/main/main-7.jpg" alt="" loading="lazy"><img src="images/final/main/main-8.jpg" alt="" loading="lazy"><img src="images/final/main/main-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -1242,15 +1273,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-6.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="biryani">
       <div class="section-head">
-        <img class="section-banner" src="images/biryani.jpg" alt="Biryani & Handi" loading="lazy">
+        <img class="section-banner" src="images/final/biryani/Biryani-2.jpg" alt="Biryani & Handi" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Biryani & Handi</h2>
         <span class="tagline">Slow-Cooked, Dum-Sealed</span>
-        <div class="gallery-strip"><img src="images/gallery/rice_biryani-7.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-8.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-9.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-10.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-11.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/biryani/Biryani-1.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-3.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-4.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-5.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -1332,15 +1363,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-7.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="rice">
       <div class="section-head">
-        <img class="section-banner" src="images/rice1.jpg" alt="Rice Bowls" loading="lazy">
+        <img class="section-banner" src="images/final/rice/platers-4.jpg" alt="Rice Bowls" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Rice Bowls</h2>
         <span class="tagline">Steamed & Stirred</span>
-        <div class="gallery-strip"><img src="images/rice.jpg" alt="" loading="lazy"><img src="images/thali.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-1.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-2.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-3.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-4.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-5.jpg" alt="" loading="lazy"><img src="images/gallery/rice_biryani-6.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/rice/platers-1.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-2.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-3.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-5.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-6.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-7.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-8.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -1454,11 +1485,11 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-8.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="dal">
       <div class="section-head">
-        <img class="section-banner" src="images/dal%20bowl.jpg" alt="Dal Bowls" loading="lazy">
+        <img class="section-banner" src="images/final/dal/dal.jpg" alt="Dal Bowls" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Dal Bowls</h2>
         <span class="tagline">Slow-Simmered Comfort</span>
@@ -1499,15 +1530,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-9.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="breads">
       <div class="section-head">
-        <img class="section-banner" src="images/breads.jpg" alt="Tawa Atta" loading="lazy">
+        <img class="section-banner" src="images/final/breads/Tawa%20Atta-2.jpg" alt="Tawa Atta" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Tawa Atta</h2>
         <span class="tagline">Fresh off the Tawa</span>
-        <div class="gallery-strip"><img src="images/gallery/breads-1.jpg" alt="" loading="lazy"><img src="images/gallery/breads-2.jpg" alt="" loading="lazy"><img src="images/gallery/breads-3.jpg" alt="" loading="lazy"><img src="images/gallery/breads-4.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-strip"><img src="images/final/breads/Tawa%20Atta-1.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-3.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-4.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-5.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-6.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -1551,15 +1582,15 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-10.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="drinks">
       <div class="section-head">
-        
+        <img class="section-banner" src="images/final/drinks/mocktail-1.jpg" alt="Drinks" loading="lazy">
         <span class="section-icon">✦</span>
         <h2>Drinks</h2>
         <span class="tagline">Sip & Refresh</span>
-        
+        <div class="gallery-strip"><img src="images/final/drinks/mocktail-2.jpg" alt="" loading="lazy"><img src="images/final/drinks/mocktail-3.jpg" alt="" loading="lazy"><img src="images/final/drinks/mocktail-4.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         
@@ -1610,7 +1641,7 @@
       </div>
       </div>
     </section>
-<div class="divider" style="background-image:url('images/decor/decor-11.jpg')"></div>
+<div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="sweets">
       <div class="section-head">
@@ -1660,7 +1691,7 @@
       <div class="qr-wrap">
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADpElEQVR4nO2cT46rOBCHvxqQZmmkHCBHITfoI70zvRvAUfoALeFlJKPfLGwD3bN6w4imSWVBAPNJLqVSrj8uTPzxZ/zrzxlwyCGHfigUrXwezAbMZo9o+QwAe8SW+lB79PQcOhZCmhpJkujzd0LDMjAAGmjq6NRIw8llcmg/VP770cysa2S/pkb2CE+DINErldHHt0zPoQOh9uuNfphbCE8TNDLC3EKYvml6Dh0OfdUIjd0HInYY4aPV+NYIYpu+Z3oOHQ5ljdiEoP17URLBDP0EBg0QBMRjp+fQt0BzjiKARvZYD/Fv2SO2WS0YzcysO356Dh0KteW/DxQDEBIaOwyyZ5nQeE9bM3J2mRzaA+UgM5/2StBLos8RaUKaAFgfkUef14bIqQgoSQkNIaEhSHmtyLoxNdIQVA8nl8mhPVC1AmGrFnlgCIn1Mq8fA56heglIem9zppKxg6IgsaW4kjR5Jcl242fI5NAuG5F/6WwUEqs9gFAuKc6E24iLQ1kj8iEvE1O1B/nXD1IddT/iFaCNZ7nGGtWzrPWtISy+hduIq0PUCENbe7DUQ1eTUZTBbcTVoeI4LPYg39ycTdRExdQIXCOuDrXkEicg4i1pfJtgtFrrGLsmGfEmxvvTNL4dOz2HDodYN8vQa0lOafEjqmUo4Yj7EVeHWmAuBdCx+wCiAfGWBE8TJOgH0Ng1CeLt0Ok5dDhUA08WU6CSlCjGY4KcjygehfsRF4e2qYhNPqJutqwLxlL4co24OrRJUpKdBNaSRlWQMrrsxj25TA7tgbZGQdN26ViXia2+ePR5dahmoyaoLoSWbFRashV4PuJVoLrzNihnIQyaZIQJ699bjDDJoEmM96fRD8dOz6HDoaW0RTYFa8uOhhph5MuN8Ti5TA7tgZbWraWQ8aW0FZS9zRpw+KrxGlA/Le2dXWn+rGoxm/2ayFtp8tbsHyKTQ3tqn0uds1iLz/sjyj08H/EC0LLbmk3Fc2393YSlm100J5fJoT1QCzQ5/2S59vkoIxq7CY1WNuaLOFsZPblMDu2BcvRpq1r0Kq2/1r8b9FNn5QmaZL2OnZ5Dh0OfO4Hn0uoHhkAw3gXEDvrfnYl4S6eXyaE90L/eFkC8JfoBrP/d1U7gkFqBak/wyWVyaD+0KXeN94SG2JZLYpsP9ohtdUN/hEwO/XcbUV43BbFD5V0R8/JGkadB+FiecxtxcehTbziituxouZFjDbF5y8TJZXLIIYf+P+gfTKj/Bc6ZAtUAAAAASUVORK5CYII=" alt="Scan for digital menu">
       </div>
-      <p class="qr-note">Scan to reopen this digital menu on your phone. Once this page is hosted online, regenerate this QR code with your live menu link.</p>
+      <p class="qr-note">Scan to reopen this digital menu on your phone.</p>
     </div>
   </div>
 
