@@ -3,66 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheet Fetch Test</title>
+<title>Sheet Fetch Test 2</title>
 <style>
-  body { font-family: -apple-system, monospace; padding: 16px; background:#111; color:#eee; font-size:14px; }
+  body { font-family: -apple-system, monospace; padding: 16px; background:#111; color:#eee; font-size:13px; }
   #out { white-space: pre-wrap; word-break: break-word; line-height: 1.6; }
   .ok { color: #4caf6e; }
   .err { color: #ff6b6b; }
   .warn { color: #e8c46a; }
+  .info { color: #7ab8e8; }
+  h4 { margin: 18px 0 6px; color: #e8c46a; }
 </style>
 </head>
 <body>
-<h3>Google Sheet Fetch Test</h3>
-<div id="out">Starting…</div>
+<h3>Sheet Fetch Test 2</h3>
+<h4>Device info</h4>
+<div id="info"></div>
+<h4>Attempt 1 (script tag, like the menu page)</h4>
+<div id="out1">Starting…</div>
+<h4>Attempt 2 (script tag, retry after 2s)</h4>
+<div id="out2">Waiting…</div>
+<h4>Attempt 3 (plain fetch, no-cors)</h4>
+<div id="out3">Waiting…</div>
 <script>
-  var out = document.getElementById('out');
-  function log(msg, cls) {
+  var SHEET_API_URL = "https://script.google.com/macros/s/AKfycby_E8jEwAQg9H6peB_dhSMqRQtdGZM08gJWi6X3dOgArcbnW_KfjhHqSQg6u9hDgzeexg/exec";
+
+  function logTo(id, msg, cls) {
+    var container = document.getElementById(id);
     var line = document.createElement('div');
     if (cls) line.className = cls;
     line.textContent = msg;
-    out.appendChild(line);
+    container.appendChild(line);
   }
 
-  var SHEET_API_URL = "https://script.google.com/macros/s/AKfycby_E8jEwAQg9H6peB_dhSMqRQtdGZM08gJWi6X3dOgArcbnW_KfjhHqSQg6u9hDgzeexg/exec";
-  var callbackName = "__testCallback_" + Math.random().toString(36).slice(2, 8);
-  log("Callback name: " + callbackName);
+  // Device / browser info
+  var info = document.getElementById('info');
+  function infoLine(msg) { var d = document.createElement('div'); d.className = 'info'; d.textContent = msg; info.appendChild(d); }
+  infoLine("User agent: " + navigator.userAgent);
+  infoLine("Online: " + navigator.onLine);
+  infoLine("Standalone/in-app hints: " + (window.chrome ? "has window.chrome " : "no window.chrome ") + (navigator.standalone !== undefined ? "iOS standalone=" + navigator.standalone : ""));
+  if (navigator.connection) {
+    infoLine("Connection type: " + (navigator.connection.effectiveType || "?") + ", saveData: " + (navigator.connection.saveData || false));
+  }
 
-  var startTime = Date.now();
-  var finished = false;
+  function runScriptTagTest(outId, delay) {
+    setTimeout(function () {
+      document.getElementById(outId).textContent = "";
+      var callbackName = "__test2_" + Math.random().toString(36).slice(2, 8);
+      var start = Date.now();
+      var finished = false;
 
-  var timeout = setTimeout(function () {
-    if (finished) return;
-    finished = true;
-    log("RESULT: TIMEOUT after 10s — the script tag never called back.", "err");
-    log("This usually means the request was blocked before it could load (ad blocker, security extension, or network filter), or Google returned something that could not run as JavaScript.", "warn");
-  }, 10000);
+      var timeout = setTimeout(function () {
+        if (finished) return;
+        finished = true;
+        logTo(outId, "TIMEOUT after 10s — no callback fired.", "err");
+      }, 10000);
 
-  window[callbackName] = function (data) {
-    if (finished) return;
-    finished = true;
-    clearTimeout(timeout);
-    var ms = Date.now() - startTime;
-    log("RESULT: SUCCESS in " + ms + "ms — got " + data.length + " rows.", "ok");
-    log("First row: " + JSON.stringify(data[0]));
-  };
+      window[callbackName] = function (data) {
+        if (finished) return;
+        finished = true;
+        clearTimeout(timeout);
+        logTo(outId, "SUCCESS in " + (Date.now() - start) + "ms — " + data.length + " rows.", "ok");
+      };
 
-  var script = document.createElement("script");
-  script.src = SHEET_API_URL + "?callback=" + callbackName;
-  log("Requesting: " + script.src);
+      var script = document.createElement("script");
+      script.src = SHEET_API_URL + "?callback=" + callbackName;
+      logTo(outId, "Requesting…");
+      script.onerror = function () {
+        if (finished) return;
+        finished = true;
+        clearTimeout(timeout);
+        logTo(outId, "script.onerror FIRED after " + (Date.now() - start) + "ms — blocked or failed to load.", "err");
+      };
+      document.body.appendChild(script);
+    }, delay);
+  }
 
-  script.onload = function () {
-    log("script.onload fired (the network request completed).");
-  };
-  script.onerror = function () {
-    if (finished) return;
-    finished = true;
-    clearTimeout(timeout);
-    log("RESULT: script.onerror FIRED — the browser blocked or failed to load this URL as a script.", "err");
-  };
+  runScriptTagTest('out1', 0);
+  runScriptTagTest('out2', 2000);
 
-  document.body.appendChild(script);
-  log("Script tag added to page, waiting for response…");
+  // Attempt 3: plain fetch with no-cors, just to see if the network request itself succeeds at all
+  setTimeout(function () {
+    var out3 = document.getElementById('out3');
+    out3.textContent = "";
+    if (!window.fetch) {
+      logTo('out3', "fetch() not supported in this browser.", "warn");
+      return;
+    }
+    var start = Date.now();
+    fetch(SHEET_API_URL + "?callback=fetchtest", { mode: "no-cors" })
+      .then(function (res) {
+        logTo('out3', "fetch resolved in " + (Date.now() - start) + "ms — type: " + res.type + ", status: " + res.status + " (status is always 0 for no-cors, that's normal)", "ok");
+      })
+      .catch(function (err) {
+        logTo('out3', "fetch FAILED in " + (Date.now() - start) + "ms — " + err.message, "err");
+      });
+  }, 4500);
 </script>
 </body>
 </html>
