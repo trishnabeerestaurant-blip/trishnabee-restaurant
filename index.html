@@ -137,6 +137,11 @@
   @media (min-width: 860px) {
     .section-body { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; align-items: start; }
   }
+  .menu-status {
+    grid-column: 1 / -1; text-align: center; font-style: italic;
+    color: var(--muted); font-size: 14px; padding: 18px 0;
+  }
+  .menu-status.error { color: var(--nonveg); font-style: normal; }
 
   .subblock { margin-bottom: 28px; min-width: 0; }
   .subhead {
@@ -248,7 +253,7 @@
 
   <div class="page-shell">
     <div class="container">
-      
+
     <section class="menu-section" id="starters">
       <div class="section-head">
         <img class="section-banner" src="images/final/starters/strater-1.jpg" alt="Starters" loading="lazy">
@@ -258,299 +263,7 @@
         <div class="gallery-strip"><img src="images/final/starters/strater-10.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-11.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-12.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-13.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-14.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-15.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-16.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-17.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-18.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-19.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-20.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-21.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-22.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-23.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-3.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-4.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-6.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-7.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-8.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead"><span class="dot veg"></span>Veg Starters</div>
-        
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Dragon Veg Skewers</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹189/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹299/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Butterfly Paneer Wings</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹179/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Kurkure Paneer Shots</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹179/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Golden Paneer Cutlet</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹179/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹299/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Paneer Popcorn Bites</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Zesty Chatpata Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Crispy Veg Pops</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Trishnabee Paneer 65</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Classic Paneer Fritters</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹139/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹239/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Hung Curd Bliss Bites</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹199/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹339/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Molten Cheese Bombs</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹179/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹299/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Mushroom Popcorn Bites</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Zesty Chatpata Mushroom</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹179/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹299/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Butterfly Mushroom Wings</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Trishnabee Mushroom 65</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Classic Mushroom Fritters</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹139/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹239/-</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="subblock">
-        <div class="subhead"><span class="dot nonveg"></span>Non-Veg Starters</div>
-        
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Chicken 65</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Kurkure Chicken Shots</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Golden Crunch Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Chicken Popcorn Bites</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Thunder Chicken Bits</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>KFC Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Chicken Pops</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Classic Chicken Fritters</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹99/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹189/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Dragon Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Butterfly Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Egg Vada</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Classic Egg Fritters</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Egg Popcorn</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Coastal Prawn Fritters</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Trishnabee Prawn 65</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Tawa Masala Fish Fry</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Charred Tawa Fish</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Whole Fish Masala Fry</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Whole Fish Dry Roast</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Pan-Seared Fish Fry</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹99/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹189/-</span></div>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -564,80 +277,7 @@
         <div class="gallery-strip"><img src="images/final/soups/Soup-1.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-2.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-3.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-5.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Soups</div>
-        
-        <div class="item">
-          <div class="item-name">Trishnabee Garden Broth Soup</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Hot & Sour Veg</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Veg Manchow</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Fire & Tangy Veg Soup</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Sweet Corn Soup</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee House Chicken Broth Soup</div>
-          <div class="item-prices one">
-            <span class="pval">₹139/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Manchow Non-Veg</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Hot & Sour Non-Veg</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Fire & Tangy Chicken Soup</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Special Paya Soup</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -651,52 +291,7 @@
         <div class="gallery-strip"><img src="images/final/salads/Salads-1.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Salads</div>
-        
-        <div class="item">
-          <div class="item-name">Farm Fresh Green Salad</div>
-          <div class="item-prices one">
-            <span class="pval">₹49/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Seasonal Fruit Bowl</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Herbed Yogurt Curd Salad</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Classic Egg Protein Salad</div>
-          <div class="item-prices one">
-            <span class="pval">₹139/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Chicken Power Salad</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Protein Mix Salad</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -710,80 +305,7 @@
         <div class="gallery-strip"><img src="images/final/noodles/noodles-1.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-2.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-3.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-4.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Noodles</div>
-        
-        <div class="item">
-          <div class="item-name">Trishnabee Signature Veg Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Cottage Cheese Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Truffle Mushroom Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Firecracker Garlic Veg Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Classic Chicken Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Roasted Garlic Chicken Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Scrambled Egg Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Coastal Prawn Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹159/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Slow-Braised Mutton Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹159/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee House Mix Noodles</div>
-          <div class="item-prices one">
-            <span class="pval">₹159/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -797,52 +319,7 @@
         <div class="gallery-strip"><img src="images/final/rolls/rool-3.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-4.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-5.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-6.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Rolls</div>
-        
-        <div class="item">
-          <div class="item-name">Cottage Cheese Roll</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Truffle Mushroom Roll</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Garden Roll</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Double Decker Chicken Roll</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee House Loaded Roll</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Double Decker Egg Roll</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -856,421 +333,7 @@
         <div class="gallery-strip"><img src="images/final/main/main-1.jpg" alt="" loading="lazy"><img src="images/final/main/main-10.jpg" alt="" loading="lazy"><img src="images/final/main/main-12.jpg" alt="" loading="lazy"><img src="images/final/main/main-13.jpg" alt="" loading="lazy"><img src="images/final/main/main-14.jpg" alt="" loading="lazy"><img src="images/final/main/main-15.jpg" alt="" loading="lazy"><img src="images/final/main/main-2.jpg" alt="" loading="lazy"><img src="images/final/main/main-3.jpg" alt="" loading="lazy"><img src="images/final/main/main-4.jpg" alt="" loading="lazy"><img src="images/final/main/main-5.jpg" alt="" loading="lazy"><img src="images/final/main/main-6.jpg" alt="" loading="lazy"><img src="images/final/main/main-7.jpg" alt="" loading="lazy"><img src="images/final/main/main-8.jpg" alt="" loading="lazy"><img src="images/final/main/main-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead"><span class="dot veg"></span>Veg Main Course</div>
-        
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Velvet Malai Kofta</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹199/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹339/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Cream Cloud Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹199/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹339/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Grandma's Veg Kajana</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹189/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹319/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Smoked Butter Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Charred Kadai Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Slow-Cooked Handi Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Paneer Kolhapuri</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Nizami Hyderabadi Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Double Onion Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Crispy Chilli Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Royal Sahi Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>House Special Paneer Masala</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Garden Matar Paneer</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Scrambled Paneer Bhurji</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Dhaba-Style Paneer Bhurji Curry</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Truffle Butter Mushroom</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Sizzler Kadai Mushroom</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Double Onion Mushroom</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Paneer Rumali</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Crispy Chilli Mushroom</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Claypot Mushroom Masala</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Spiced Kolhapuri Mushroom</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Nine-Jewel Korma</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Signature Veg Kofta</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹179/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹299/-</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="subblock">
-        <div class="subhead"><span class="dot nonveg"></span>Non-Veg Main Course</div>
-        
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Firecracker Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Slow-Cooked Handi Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Charred Kadai Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Trishnabee Kassa Chicken Roast</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Royal Mughlai Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹199/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹339/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Double Onion Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>House Special Chicken Masala</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Egg Bhurji Curry</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Egg Masala</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹249/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Smoked Butter Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹159/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹269/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Nizami Hyderabadi Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Chicken Kurma</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Chicken Kolhapuri</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Coastal Malwani Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹199/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹339/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Dhaba-Style Punjabi Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Roasted Garlic Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹199/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹339/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Methi Cream Chicken</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹169/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹289/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Signature Mutton Masala</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹239/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹399/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Trishnabee Mutton Kassa</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Shahi Mughlai Mutton</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Claypot Handi Mutton</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Sizzler Kadhai Mutton</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Caramelized Onion Mutton</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Gaon-Style Prawn Masala</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Crispy Chili Prawn</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Coastal Prawn Kassa</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹249/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹419/-</span></div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Grandma's Fish Curry</div>
-          <div class="item-prices two">
-            <div class="pcol"><span class="ptag">Lite</span><span class="pval">₹149/-</span></div>
-            <div class="pcol"><span class="ptag">Grand</span><span class="pval">₹259/-</span></div>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -1284,83 +347,7 @@
         <div class="gallery-strip"><img src="images/final/biryani/Biryani-1.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-3.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-4.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-5.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead"><span class="dot nonveg"></span>Non-Veg Biryani Handi</div>
-        
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Classic Dum Chicken Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Trishnabee Royal Chicken Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Royal Egg Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Slow-Cooked Mutton Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹249/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot nonveg" title="Non-Veg"></span>Coastal Prawn Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹249/-</span>
-          </div>
-        </div>
-      </div>
-      <div class="subblock">
-        <div class="subhead"><span class="dot veg"></span>Veg Biryani Handi</div>
-        
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Trishnabee Garden Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Special Aloo Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Cottage Paneer Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹179/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Truffle Mushroom Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹179/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name"><span class="dot veg" title="Veg"></span>Trishnabee Signature Veg Biryani</div>
-          <div class="item-prices one">
-            <span class="pval">₹199/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -1374,115 +361,7 @@
         <div class="gallery-strip"><img src="images/final/rice/platers-1.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-2.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-3.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-5.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-6.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-7.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-8.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Rice Bowls</div>
-        
-        <div class="item">
-          <div class="item-name">Steamed Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹39/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Jeera Tempered Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹69/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Firecracker Schezwan Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Garden Chilli Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Cottage Cheese Masala Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Truffle Mushroom Masala Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Garden Masala Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Cottage Cheese Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹159/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Truffle Mushroom Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹159/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Signature Veg Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Firecracker Chicken Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹169/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Classic Chicken Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹149/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Slow-Braised Mutton Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹199/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Coastal Prawn Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹249/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee House Mix Fried Rice</div>
-          <div class="item-prices one">
-            <span class="pval">₹199/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -1493,41 +372,10 @@
         <span class="section-icon">✦</span>
         <h2>Dal Bowls</h2>
         <span class="tagline">Slow-Simmered Comfort</span>
-        
+
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Dal Bowls</div>
-        
-        <div class="item">
-          <div class="item-name">Classic Homestyle Dal</div>
-          <div class="item-prices one">
-            <span class="pval">₹39/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Tempered Dal Fry</div>
-          <div class="item-prices one">
-            <span class="pval">₹49/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Smoky Ghee Tadka Dal</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Signature Dal Fry</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -1541,45 +389,7 @@
         <div class="gallery-strip"><img src="images/final/breads/Tawa%20Atta-1.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-3.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-4.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-5.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-6.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Breads</div>
-        
-        <div class="item">
-          <div class="item-name">Tawa Roti</div>
-          <div class="item-prices one">
-            <span class="pval">₹10/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Flaky Tawa Paratha</div>
-          <div class="item-prices one">
-            <span class="pval">₹29/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Butter-Glazed Paratha</div>
-          <div class="item-prices one">
-            <span class="pval">₹39/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Butter-Glazed Aloo Paratha</div>
-          <div class="item-prices one">
-            <span class="pval">₹49/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Cottage Paneer Stuffed Paratha</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
@@ -1593,90 +403,21 @@
         <div class="gallery-strip"><img src="images/final/drinks/mocktail-2.jpg" alt="" loading="lazy"><img src="images/final/drinks/mocktail-3.jpg" alt="" loading="lazy"><img src="images/final/drinks/mocktail-4.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Drinks</div>
-        
-        <div class="item">
-          <div class="item-name">Street Masala Cooler</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Spiced Masala Fizz</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Classic Salted Lemonade</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Jeera Fizz</div>
-          <div class="item-prices one">
-            <span class="pval">₹59/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Trishnabee Signature Cooler</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Chilled Coke</div>
-          <div class="item-prices one">
-            <span class="pval">₹49/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
 <div class="divider"><span>❦</span></div>
 
     <section class="menu-section" id="sweets">
       <div class="section-head">
-        
+
         <span class="section-icon">✦</span>
         <h2>Sweets</h2>
         <span class="tagline">A Sweet Finish</span>
-        
+
       </div>
       <div class="section-body">
-        
-      <div class="subblock">
-        <div class="subhead">Sweets</div>
-        
-        <div class="item">
-          <div class="item-name">Ice Cream</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Veg Pudding</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-name">Non-Veg Pudding</div>
-          <div class="item-prices one">
-            <span class="pval">₹99/-</span>
-          </div>
-        </div>
-      </div>
+        <p class="menu-status loading">Loading menu…</p>
       </div>
     </section>
     </div>
@@ -1714,10 +455,12 @@
 </script>
 
 <!--
-  Live menu sync from Google Sheets.
+  Menu is loaded entirely from Google Sheets.
   The sheet is served as JSON via a Google Apps Script Web App (doGet).
-  If the fetch fails (offline, endpoint down, etc.) the hardcoded menu
-  above stays as-is, so the page never goes blank.
+  There is no hardcoded fallback menu anymore: every section starts with
+  a "Loading menu…" placeholder and is filled in once the sheet responds.
+  If the fetch fails or times out, the placeholder is replaced with an
+  error message instead of silently showing stale data.
 -->
 <script>
 (function () {
@@ -1853,13 +596,25 @@
     });
   }
 
+  function showError() {
+    document.querySelectorAll(".section-body").forEach(function (body) {
+      var status = body.querySelector(".menu-status");
+      if (status) {
+        status.className = "menu-status error";
+        status.textContent = "Couldn't load the menu. Please refresh the page.";
+      }
+    });
+  }
+
   function loadMenu() {
-    if (!SHEET_API_URL) return;
+    if (!SHEET_API_URL) { showError(); return; }
     var callbackName = "__trishnabeeMenuCallback_" + Math.random().toString(36).slice(2, 8);
+    var done = false;
 
     var timeout = setTimeout(function () {
-      console.warn("Menu sheet did not respond in time; showing built-in menu.");
+      console.warn("Menu sheet did not respond in time.");
       cleanup();
+      if (!done) showError();
     }, 10000);
 
     function cleanup() {
@@ -1869,19 +624,22 @@
     }
 
     window[callbackName] = function (data) {
+      done = true;
+      cleanup();
       try {
         renderMenu(data);
       } catch (err) {
-        console.error("Menu render failed, keeping built-in menu:", err);
+        console.error("Menu render failed:", err);
+        showError();
       }
-      cleanup();
     };
 
     var script = document.createElement("script");
     script.src = SHEET_API_URL + "?callback=" + callbackName;
     script.onerror = function () {
-      console.warn("Could not reach the menu sheet; showing built-in menu.");
+      console.warn("Could not reach the menu sheet.");
       cleanup();
+      if (!done) showError();
     };
     document.body.appendChild(script);
   }
