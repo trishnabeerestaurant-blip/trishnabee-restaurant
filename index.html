@@ -236,7 +236,7 @@
 <body>
 
 <script>
-  // 10-minute session limit per QR scan. The start time is stored in
+  // 5-minute session limit per QR scan. The start time is stored in
   // sessionStorage (tied to this browser tab), so it survives reloads and
   // back/forward navigation but resets if the customer closes the tab and
   // scans the QR again fresh. Once expired, the menu stays hidden and the
@@ -244,7 +244,7 @@
   // reloaded or revisited within this tab.
   (function () {
     var KEY = "trishnabeeSessionStart";
-    var LIMIT_MS = 10 * 60 * 1000; // 10 minutes
+    var LIMIT_MS = 5 * 60 * 1000; // 5 minutes
 
     function expire() {
       document.documentElement.classList.add("session-expired");
@@ -317,7 +317,7 @@
     <span class="item"><span class="dot nonveg"></span> Non-Vegetarian</span>
   </div>
   <p class="note-strip">All prices are in ₹ (INR) and inclusive of applicable taxes. Prices subject to change without prior notice.</p>
-  <p class="note-strip">Waiting Time minimum - 30 min.</p>
+  <p class="note-strip">All prices are in ₹ (INR) and inclusive of applicable taxes. Prices subject to change without prior notice.</p>
 
   <div class="page-shell">
     <div class="container">
@@ -598,12 +598,12 @@
   function priceHtml(lite, grand) {
     if (hasValue(lite) && hasValue(grand)) {
       return '<div class="item-prices two">' +
-        '<div class="pcol"><span class="ptag">Lite</span><span class="pval">₹' + escapeHtml(lite) + '/-</span></div>' +
-        '<div class="pcol"><span class="ptag">Grand</span><span class="pval">₹' + escapeHtml(grand) + '/-</span></div>' +
+        '<div class="pcol"><span class="ptag">Lite</span><span class="pval">' + escapeHtml(lite) + '/-</span></div>' +
+        '<div class="pcol"><span class="ptag">Grand</span><span class="pval">' + escapeHtml(grand) + '/-</span></div>' +
         '</div>';
     }
     var single = hasValue(grand) ? grand : lite;
-    return '<div class="item-prices one"><span class="pval">₹' + escapeHtml(single) + '/-</span></div>';
+    return '<div class="item-prices one"><span class="pval">' + escapeHtml(single) + '/-</span></div>';
   }
 
   function itemHtml(item) {
