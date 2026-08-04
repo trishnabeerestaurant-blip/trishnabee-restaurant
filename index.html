@@ -44,8 +44,8 @@
   }
   .hero h1 {
     font-family: 'Cinzel Decorative', 'Playfair Display', Georgia, serif;
-    font-size: clamp(38px, 10vw, 66px);
-    letter-spacing: clamp(1px, 0.6vw, 4px);
+    font-size: clamp(26px, 6.5vw, 46px);
+    letter-spacing: clamp(0.5px, 0.4vw, 3px);
     margin: 0; font-weight: 900; line-height: 1.1;
     background: linear-gradient(180deg, #fff7de 0%, #f3d788 22%, #caa14a 48%, #efc873 68%, #f8e3ab 82%, #c99a3e 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -53,7 +53,7 @@
     position: relative;
   }
   .hero h1::after {
-    content: "Trishnabee";
+    content: "Trishnabee Restaurant";
     position: absolute; left:0; top:0; width:100%;
     background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.55) 48%, transparent 66%);
     background-size: 220% 100%;
@@ -127,6 +127,27 @@
     border-radius: 6px; border: 1px solid var(--divider); box-shadow: 0 4px 14px rgba(0,0,0,0.4);
   }
 
+  .tab-slideshow {
+    position: relative; width: 100%; max-width: 480px; margin: 0 auto 16px;
+    height: clamp(160px, 34vw, 260px); border-radius: 8px; overflow: hidden;
+    border: 2px solid var(--gold-deep); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #0c0704;
+  }
+  .tab-slide {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1.1s ease-in-out;
+  }
+  .tab-slide.active { opacity: 1; }
+  .tab-dots {
+    position: absolute; left: 0; right: 0; bottom: 10px; z-index: 2;
+    display: flex; justify-content: center; gap: 6px;
+  }
+  .tab-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.45);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5); transition: background .3s ease, transform .3s ease;
+  }
+  .tab-dot.active { background: var(--gold); transform: scale(1.35); }
+
   .divider {
     display:flex; align-items:center; justify-content:center; gap: 14px;
     margin: 10px 0 30px; color: var(--gold-deep); font-size: 14px;
@@ -136,6 +157,14 @@
   .section-body { display: block; }
   @media (min-width: 860px) {
     .section-body { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; align-items: start; }
+  }
+  /* Platter always shows Veg / Non-Veg side by side, even on mobile. */
+  #platter .section-body {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; align-items: start;
+  }
+  @media (max-width: 420px) {
+    #platter .subhead { font-size: 11px; letter-spacing: 1px; }
+    #platter .item-name { font-size: clamp(12.5px, 3.2vw, 14px); }
   }
   .menu-status {
     grid-column: 1 / -1; text-align: center; font-style: italic;
@@ -156,11 +185,17 @@
     gap: 10px; padding: 9px 0; border-bottom: 1px dotted rgba(232,196,106,0.15);
   }
   .item:last-child { border-bottom: none; }
+  .item-main { flex: 1 1 auto; min-width: 0; }
   .item-name {
     font-family: Georgia, serif;
     font-size: clamp(14px, 3.6vw, 15.5px); color: var(--ink);
     display:flex; align-items:baseline; gap:8px; line-height: 1.35;
-    flex: 1 1 auto; min-width: 0; word-break: break-word;
+    min-width: 0; word-break: break-word;
+  }
+  .item-desc {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12.5px; color: var(--muted); font-style: italic;
+    line-height: 1.45; margin-top: 3px; padding-left: 19px; word-break: break-word;
   }
   .dot { display:inline-block; width:11px; height:11px; border-radius: 2px; flex: none; position: relative; top: 1px; }
   .dot.veg { background: transparent; border: 1.5px solid var(--veg); }
@@ -194,21 +229,53 @@
   html.session-expired .expired-screen {
     display: flex; min-height: 100vh; align-items: center; justify-content: center;
     padding: 30px 20px; text-align: center;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(165,71,75,0.25), transparent 45%),
+      radial-gradient(circle at 10% 110%, rgba(201,162,75,0.14), transparent 50%),
+      radial-gradient(circle at 90% 100%, rgba(165,71,75,0.16), transparent 55%),
+      linear-gradient(180deg, #1c1108 0%, #120b05 50%, #0c0704 100%);
   }
   .expired-inner {
-    max-width: 380px; padding: 40px 28px; border: 1px solid var(--divider);
-    border-radius: 12px; background: var(--card-bg); box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+    max-width: 400px; width: 100%; padding: 46px 32px 38px; position: relative;
+    border: 1px solid var(--divider); border-radius: 14px;
+    background: var(--card-bg); box-shadow: 0 24px 70px rgba(0,0,0,0.6);
   }
-  .expired-inner .crest { color: var(--gold-deep); letter-spacing: 6px; font-size: 12px; margin-bottom: 14px; text-transform: uppercase; }
+  .expired-inner::before {
+    content: ""; position: absolute; left: 18px; right: 18px; top: 10px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-deep), transparent); opacity: 0.7;
+  }
+  .expired-icon {
+    width: 46px; height: 46px; margin: 0 auto 16px; color: var(--gold);
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  }
+  .expired-icon svg { width: 100%; height: 100%; }
+  .expired-inner .crest { color: var(--gold-deep); letter-spacing: 5px; font-size: 11px; margin-bottom: 10px; text-transform: uppercase; }
   .expired-inner h1 {
-    font-family: 'Playfair Display', Georgia, serif; color: var(--gold);
-    letter-spacing: 3px; font-size: 26px; text-transform: uppercase; font-weight: 700; margin: 0 0 18px;
+    font-family: 'Cinzel Decorative', 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 7vw, 36px); letter-spacing: 1px; font-weight: 900; line-height: 1.1;
+    margin: 0 0 16px;
+    background: linear-gradient(180deg, #fff7de 0%, #f3d788 22%, #caa14a 48%, #efc873 68%, #f8e3ab 82%, #c99a3e 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
   }
+  .expired-inner .rule { width: 110px; height: auto; margin: 0 auto 20px; opacity: 0.85; }
+  .expired-inner .rule svg { width: 100%; height: 12px; display: block; }
   .expired-inner .expired-msg {
-    color: var(--ink); font-size: 17px; font-style: italic; margin: 0 0 22px; line-height: 1.5;
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--ink); font-size: 17px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 700; margin: 0 0 22px;
   }
-  .expired-inner .expired-detail { color: var(--muted); font-size: 14px; margin: 6px 0; line-height: 1.5; }
-  .expired-inner .expired-detail a { color: var(--gold); }
+  .expired-divider {
+    display:flex; align-items:center; justify-content:center; gap: 12px;
+    margin: 0 0 20px; color: var(--gold-deep); font-size: 13px;
+  }
+  .expired-divider::before, .expired-divider::after { content:""; flex:1; height:1px; background: var(--divider); }
+  .expired-inner .expired-detail { color: var(--muted); font-size: 14px; margin: 6px 0; line-height: 1.6; letter-spacing: 0.3px; }
+  .expired-inner .expired-detail a { color: var(--gold); font-weight: 600; text-decoration: none; }
+  .expired-inner .expired-note {
+    font-size: 12px; color: var(--muted); margin: 22px auto 0; max-width: 280px;
+    line-height: 1.6; letter-spacing: 0.3px;
+  }
 
   .note-strip {
     max-width: 780px; margin: 10px auto 0; padding: 0 18px; text-align:center;
@@ -222,13 +289,13 @@
     .gallery-strip img { width: 84px; height: 84px; }
   }
 
-  @media (min-width: 1000px) { .hero { padding: 66px 20px 46px; } }
+  @media (min-width: 1000px) { .hero { padding: 16px 20px 46px; } }
 
   @media print {
     .navbar { position: static; }
     body { background: #fff; color: #111; }
     .container { background: #fff; border-color: #999; box-shadow:none; }
-    .gallery-strip, .section-banner { display:none; }
+    .gallery-strip, .section-banner, .tab-slideshow { display:none; }
     .hero h1, .hero h1::after { -webkit-text-fill-color: #6e1f24; background:none; color:#6e1f24; }
   }
 </style>
@@ -283,9 +350,9 @@
   <div class="app-content">
   <div class="hero">
     <div class="hero-inner">
-      <div class="crest">✦ Indian | Chinese | Tandori ✦</div>
-      <h1>Trishnabee</h1>
-      <p class="sub">Fine Dining &amp; Culinary Craft</p>
+      <div class="crest">Fine Dining &amp; Culinary Craft</div>
+      <h1>Trishnabee Restaurant</h1>
+      <p class="sub">✦ Indian | Chinese | Tandori ✦</p>
       <div class="rule">
         <svg viewBox="0 0 300 20" xmlns="http://www.w3.org/2000/svg">
           <line x1="0" y1="10" x2="120" y2="10" stroke="#c9a24b" stroke-width="1"/>
@@ -298,18 +365,20 @@
   </div>
 
   <nav class="navbar" id="navbar">
+    <a href="#celebration" class="navlink">Celebration</a>
     <a href="#starters" class="navlink">Starters</a>
-<a href="#soups" class="navlink">Soups</a>
-<a href="#salads" class="navlink">Salads</a>
-<a href="#noodles" class="navlink">Noodles</a>
-<a href="#rolls" class="navlink">Rolls</a>
-<a href="#main" class="navlink">Main Course</a>
-<a href="#biryani" class="navlink">Biryani</a>
-<a href="#rice" class="navlink">Rice</a>
-<a href="#dal" class="navlink">Dal</a>
-<a href="#breads" class="navlink">Breads</a>
-<a href="#drinks" class="navlink">Drinks</a>
-<a href="#sweets" class="navlink">Sweets</a>
+    <a href="#soups" class="navlink">Soups</a>
+    <a href="#salads" class="navlink">Salads</a>
+    <a href="#noodles" class="navlink">Noodles</a>
+    <a href="#rolls" class="navlink">Rolls</a>
+    <a href="#main" class="navlink">Main Course</a>
+    <a href="#platter" class="navlink">Platter</a>
+    <a href="#biryani" class="navlink">Biryani</a>
+    <a href="#rice" class="navlink">Rice</a>
+    <a href="#dal" class="navlink">Dal</a>
+    <a href="#breads" class="navlink">Breads</a>
+    <a href="#drinks" class="navlink">Drinks</a>
+    <a href="#sweets" class="navlink">Sweets</a>
   </nav>
 
   <div class="legend">
@@ -317,18 +386,72 @@
     <span class="item"><span class="dot nonveg"></span> Non-Vegetarian</span>
   </div>
   <p class="note-strip">All prices are in ₹ (INR) and inclusive of applicable taxes. Prices subject to change without prior notice.</p>
-  <p class="note-strip">All prices are in ₹ (INR) and inclusive of applicable taxes. Prices subject to change without prior notice.</p>
+  <p class="note-strip">Minimum Waiting Time : 30 min.</p>
 
   <div class="page-shell">
     <div class="container">
 
+    <section class="menu-section" id="celebration">
+      <div class="section-head">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/celebration/celebration%201.jpg" alt="Celebration" loading="lazy">
+          <img class="tab-slide" src="images/final/celebration/celebration%202.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/celebration/celebration%203.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/celebration/celebration%204.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/celebration/celebration%205.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/celebration/celebration%206.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/celebration/celebration%207.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span>
+            <span class="tab-dot"></span>
+            <span class="tab-dot"></span>
+            <span class="tab-dot"></span>
+            <span class="tab-dot"></span>
+            <span class="tab-dot"></span>
+            <span class="tab-dot"></span>
+          </div>
+        </div>
+        <span class="section-icon">✦</span>
+        <h2>Celebration</h2>
+        <span class="tagline">Mark the Moment</span>
+      </div>
+      <div class="section-body">
+        <p class="menu-status loading">Loading menu…</p>
+      </div>
+    </section>
+<div class="divider"><span>❦</span></div>
+
     <section class="menu-section" id="starters">
       <div class="section-head">
-        <img class="section-banner" src="images/final/starters/strater-1.jpg" alt="Starters" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/starters/strater-1.jpg" alt="Starters" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-10.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-11.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-12.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-13.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-14.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-15.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-16.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-17.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-18.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-19.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-20.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-21.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-22.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-23.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-4.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-6.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-7.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-8.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/starters/strater-9.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Starters</h2>
         <span class="tagline">Awaken the Palate</span>
-        <div class="gallery-strip"><img src="images/final/starters/strater-10.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-11.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-12.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-13.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-14.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-15.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-16.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-17.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-18.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-19.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-20.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-21.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-22.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-23.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-3.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-4.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-6.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-7.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-8.jpg" alt="" loading="lazy"><img src="images/final/starters/strater-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -338,11 +461,19 @@
 
     <section class="menu-section" id="soups">
       <div class="section-head">
-        <img class="section-banner" src="images/final/soups/Soup-4.jpg" alt="Warm Bowls" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/soups/Soup-4.jpg" alt="Warm Bowls" loading="lazy">
+          <img class="tab-slide" src="images/final/soups/Soup-1.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/soups/Soup-2.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/soups/Soup-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/soups/Soup-5.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Warm Bowls</h2>
         <span class="tagline">Soups & Broths</span>
-        <div class="gallery-strip"><img src="images/final/soups/Soup-1.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-2.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-3.jpg" alt="" loading="lazy"><img src="images/final/soups/Soup-5.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -352,11 +483,16 @@
 
     <section class="menu-section" id="salads">
       <div class="section-head">
-        <img class="section-banner" src="images/final/salads/Salads-2.jpg" alt="Salads" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/salads/Salads-2.jpg" alt="Salads" loading="lazy">
+          <img class="tab-slide" src="images/final/salads/Salads-1.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Salads</h2>
         <span class="tagline">Fresh & Light</span>
-        <div class="gallery-strip"><img src="images/final/salads/Salads-1.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -366,11 +502,19 @@
 
     <section class="menu-section" id="noodles">
       <div class="section-head">
-        <img class="section-banner" src="images/final/noodles/noodles-5.jpg" alt="Noodles" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/noodles/noodles-5.jpg" alt="Noodles" loading="lazy">
+          <img class="tab-slide" src="images/final/noodles/noodles-1.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/noodles/noodles-2.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/noodles/noodles-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/noodles/noodles-4.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Noodles</h2>
         <span class="tagline">Wok-Tossed Favourites</span>
-        <div class="gallery-strip"><img src="images/final/noodles/noodles-1.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-2.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-3.jpg" alt="" loading="lazy"><img src="images/final/noodles/noodles-4.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -380,11 +524,20 @@
 
     <section class="menu-section" id="rolls">
       <div class="section-head">
-        <img class="section-banner" src="images/final/rolls/rool-2.jpg" alt="Rolls" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/rolls/rool-2.jpg" alt="Rolls" loading="lazy">
+          <img class="tab-slide" src="images/final/rolls/rool-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rolls/rool-4.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rolls/rool-5.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rolls/rool-6.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rolls/rool.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Rolls</h2>
         <span class="tagline">Hand-Rolled, On the Go</span>
-        <div class="gallery-strip"><img src="images/final/rolls/rool-3.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-4.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-5.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool-6.jpg" alt="" loading="lazy"><img src="images/final/rolls/rool.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -394,11 +547,55 @@
 
     <section class="menu-section" id="main">
       <div class="section-head">
-        <img class="section-banner" src="images/final/main/main-11.jpg" alt="Main Course" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/main/main-11.jpg" alt="Main Course" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-1.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-10.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-12.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-13.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-14.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-15.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-2.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-4.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-5.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-6.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-7.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-8.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/main/main-9.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Main Course</h2>
         <span class="tagline">The Heart of the Meal</span>
-        <div class="gallery-strip"><img src="images/final/main/main-1.jpg" alt="" loading="lazy"><img src="images/final/main/main-10.jpg" alt="" loading="lazy"><img src="images/final/main/main-12.jpg" alt="" loading="lazy"><img src="images/final/main/main-13.jpg" alt="" loading="lazy"><img src="images/final/main/main-14.jpg" alt="" loading="lazy"><img src="images/final/main/main-15.jpg" alt="" loading="lazy"><img src="images/final/main/main-2.jpg" alt="" loading="lazy"><img src="images/final/main/main-3.jpg" alt="" loading="lazy"><img src="images/final/main/main-4.jpg" alt="" loading="lazy"><img src="images/final/main/main-5.jpg" alt="" loading="lazy"><img src="images/final/main/main-6.jpg" alt="" loading="lazy"><img src="images/final/main/main-7.jpg" alt="" loading="lazy"><img src="images/final/main/main-8.jpg" alt="" loading="lazy"><img src="images/final/main/main-9.jpg" alt="" loading="lazy"></div>
+      </div>
+      <div class="section-body">
+        <p class="menu-status loading">Loading menu…</p>
+      </div>
+    </section>
+<div class="divider"><span>❦</span></div>
+
+    <section class="menu-section" id="platter">
+      <div class="section-head">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/platter/platter%201.jpg" alt="Platter" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%202.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%203.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%204.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%205.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%206.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%207.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%208.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/platter/platter%209.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
+        <span class="section-icon">✦</span>
+        <h2>Platter</h2>
+        <span class="tagline">Shareable Feasts</span>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -408,11 +605,19 @@
 
     <section class="menu-section" id="biryani">
       <div class="section-head">
-        <img class="section-banner" src="images/final/biryani/Biryani-2.jpg" alt="Biryani & Handi" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/biryani/Biryani-2.jpg" alt="Biryani & Handi" loading="lazy">
+          <img class="tab-slide" src="images/final/biryani/Biryani-1.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/biryani/Biryani-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/biryani/Biryani-4.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/biryani/Biryani-5.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Biryani & Handi</h2>
         <span class="tagline">Slow-Cooked, Dum-Sealed</span>
-        <div class="gallery-strip"><img src="images/final/biryani/Biryani-1.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-3.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-4.jpg" alt="" loading="lazy"><img src="images/final/biryani/Biryani-5.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -422,11 +627,23 @@
 
     <section class="menu-section" id="rice">
       <div class="section-head">
-        <img class="section-banner" src="images/final/rice/platers-4.jpg" alt="Rice Bowls" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/rice/platers-4.jpg" alt="Rice Bowls" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-1.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-2.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-5.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-6.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-7.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-8.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/rice/platers-9.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Rice Bowls</h2>
         <span class="tagline">Steamed & Stirred</span>
-        <div class="gallery-strip"><img src="images/final/rice/platers-1.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-2.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-3.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-5.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-6.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-7.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-8.jpg" alt="" loading="lazy"><img src="images/final/rice/platers-9.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -436,7 +653,9 @@
 
     <section class="menu-section" id="dal">
       <div class="section-head">
-        <img class="section-banner" src="images/final/dal/dal.jpg" alt="Dal Bowls" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/dal/dal.jpg" alt="Dal Bowls" loading="lazy">
+        </div>
         <span class="section-icon">✦</span>
         <h2>Dal Bowls</h2>
         <span class="tagline">Slow-Simmered Comfort</span>
@@ -450,11 +669,20 @@
 
     <section class="menu-section" id="breads">
       <div class="section-head">
-        <img class="section-banner" src="images/final/breads/Tawa%20Atta-2.jpg" alt="Tawa Atta" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/breads/Tawa%20Atta-2.jpg" alt="Tawa Atta" loading="lazy">
+          <img class="tab-slide" src="images/final/breads/Tawa%20Atta-1.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/breads/Tawa%20Atta-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/breads/Tawa%20Atta-4.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/breads/Tawa%20Atta-5.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/breads/Tawa%20Atta-6.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Tawa Atta</h2>
         <span class="tagline">Fresh off the Tawa</span>
-        <div class="gallery-strip"><img src="images/final/breads/Tawa%20Atta-1.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-3.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-4.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-5.jpg" alt="" loading="lazy"><img src="images/final/breads/Tawa%20Atta-6.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -464,11 +692,18 @@
 
     <section class="menu-section" id="drinks">
       <div class="section-head">
-        <img class="section-banner" src="images/final/drinks/mocktail-1.jpg" alt="Drinks" loading="lazy">
+        <div class="tab-slideshow">
+          <img class="tab-slide active" src="images/final/drinks/mocktail-1.jpg" alt="Drinks" loading="lazy">
+          <img class="tab-slide" src="images/final/drinks/mocktail-2.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/drinks/mocktail-3.jpg" alt="" loading="lazy">
+          <img class="tab-slide" src="images/final/drinks/mocktail-4.jpg" alt="" loading="lazy">
+          <div class="tab-dots">
+            <span class="tab-dot active"></span><span class="tab-dot"></span><span class="tab-dot"></span><span class="tab-dot"></span>
+          </div>
+        </div>
         <span class="section-icon">✦</span>
         <h2>Drinks</h2>
         <span class="tagline">Sip & Refresh</span>
-        <div class="gallery-strip"><img src="images/final/drinks/mocktail-2.jpg" alt="" loading="lazy"><img src="images/final/drinks/mocktail-3.jpg" alt="" loading="lazy"><img src="images/final/drinks/mocktail-4.jpg" alt="" loading="lazy"></div>
       </div>
       <div class="section-body">
         <p class="menu-status loading">Loading menu…</p>
@@ -507,12 +742,26 @@
 
   <div class="expired-screen">
     <div class="expired-inner">
-      <div class="crest">✦ Trishnabee Restaurant ✦</div>
-      <h1>Session Timed Out</h1>
-      <p class="expired-msg">Your session has timed out.</p>
+      <div class="expired-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3.5 2"/>
+        </svg>
+      </div>
+      <div class="crest">✦ Indian | Chinese | Tandoori ✦</div>
+      <h1>Trishnabee</h1>
+      <div class="rule">
+        <svg viewBox="0 0 300 20" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="10" x2="120" y2="10" stroke="#c9a24b" stroke-width="1"/>
+          <circle cx="150" cy="10" r="4" fill="#e8c46a"/>
+          <line x1="180" y1="10" x2="300" y2="10" stroke="#c9a24b" stroke-width="1"/>
+        </svg>
+      </div>
+      <p class="expired-msg">Your session has timed out</p>
+      <div class="expired-divider"><span>❦</span></div>
       <p class="expired-detail">Sri Ram Nagar, Polasara</p>
       <p class="expired-detail">Contact: <a href="tel:8456985980">8456985980</a></p>
-      <p class="expired-detail" style="margin-top:14px;">Please ask your server to scan the QR code again to view the menu.</p>
+      <p class="expired-note">Please ask your server to scan the QR code again to view the menu.</p>
     </div>
   </div>
 
@@ -534,6 +783,25 @@
   }));
 </script>
 
+<script>
+  // Auto-advancing slideshow for every menu tab's photos.
+  (function () {
+    document.querySelectorAll('.tab-slideshow').forEach(function (container) {
+      var slides = container.querySelectorAll('.tab-slide');
+      var dots = container.querySelectorAll('.tab-dot');
+      if (slides.length < 2) return;
+      var idx = 0;
+      setInterval(function () {
+        slides[idx].classList.remove('active');
+        if (dots[idx]) dots[idx].classList.remove('active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('active');
+        if (dots[idx]) dots[idx].classList.add('active');
+      }, 3500);
+    });
+  })();
+</script>
+
 <!--
   Menu is loaded entirely from Google Sheets.
   The sheet is served as JSON via a Google Apps Script Web App (doGet).
@@ -550,12 +818,14 @@
   // Maps a normalized sheet Category value to an existing section's id.
   // Add more aliases here if the sheet ever uses different wording.
   var SECTION_ALIASES = {
+    celebration: ["celebration", "celebrations"],
     starters: ["starters"],
     soups: ["soups", "warm bowls"],
     salads: ["salads"],
     noodles: ["noodles"],
     rolls: ["rolls"],
     main: ["main course", "main"],
+    platter: ["platter", "platters"],
     biryani: ["biryani & handi", "biryani and handi", "biryani"],
     rice: ["rice bowls", "rice"],
     dal: ["dal bowls", "dal"],
@@ -608,10 +878,15 @@
 
   function itemHtml(item) {
     var name = item["Item Name"];
+    var desc = item["Description"];
     var dotClass = isVeg(item["Type"]) ? "veg" : "nonveg";
     var title = isVeg(item["Type"]) ? "Veg" : "Non-Veg";
+    var descHtml = hasValue(desc) ? '<div class="item-desc">' + escapeHtml(desc) + '</div>' : '';
     return '<div class="item">' +
-      '<div class="item-name"><span class="dot ' + dotClass + '" title="' + title + '"></span>' + escapeHtml(name) + '</div>' +
+      '<div class="item-main">' +
+        '<div class="item-name"><span class="dot ' + dotClass + '" title="' + title + '"></span>' + escapeHtml(name) + '</div>' +
+        descHtml +
+      '</div>' +
       priceHtml(item["Lite Price (₹)"], item["Grand Price (₹)"]) +
       '</div>';
   }
@@ -630,11 +905,22 @@
 
     var order = [];
     var groups = {};
-    items.forEach(function (item) {
-      var sub = (item["Sub-Category"] || "").toString().trim() || "Menu";
-      if (!groups[sub]) { groups[sub] = []; order.push(sub); }
-      groups[sub].push(item);
-    });
+
+    if (sectionEl.id === "platter") {
+      // Platter is always split strictly into Veg / Non-Veg columns,
+      // regardless of whatever Sub-Category value the sheet rows have.
+      groups = { "Veg": [], "Non-Veg": [] };
+      items.forEach(function (item) {
+        groups[isVeg(item["Type"]) ? "Veg" : "Non-Veg"].push(item);
+      });
+      order = ["Veg", "Non-Veg"].filter(function (sub) { return groups[sub].length > 0; });
+    } else {
+      items.forEach(function (item) {
+        var sub = (item["Sub-Category"] || "").toString().trim() || "Menu";
+        if (!groups[sub]) { groups[sub] = []; order.push(sub); }
+        groups[sub].push(item);
+      });
+    }
 
     var html = "";
     order.forEach(function (sub) {
